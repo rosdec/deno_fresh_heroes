@@ -21,6 +21,7 @@ export default function Home() {
     <div class={tw`p-4 mx-auto max-w-screen-md`}>
       <h1 class={tw`text(3xl blue-500)`}>Tour of Heroes</h1>
       <HeroesScroller start={1} />
+      <br/>
       <Create></Create>
     </div>
   );

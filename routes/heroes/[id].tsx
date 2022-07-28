@@ -4,8 +4,6 @@ import heroes from "../../data/heroes.ts";
 
 export const handler: Handlers = {
     GET(_req, _ctx) {
-        console.log(_ctx.params.id)
-        console.log(globalThis.heroes.find(x => x.id == Number(_ctx.params.id)))
         return new Response(JSON.stringify(globalThis.heroes.find(x => x.id == Number(_ctx.params.id))), {
             status: 200
         });
@@ -22,6 +20,7 @@ export const handler: Handlers = {
         });
     },
     DELETE(_req, _ctx) {
+        // You probably already know what should happen here
         return new Response(JSON.stringify(globalThis.heroes), {
             status: 200
         });
