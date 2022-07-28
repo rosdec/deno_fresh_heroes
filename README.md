@@ -1,2 +1,11 @@
-# deno_fresh_heroes
-A small proof-of-concept of Deno and Fresh
+# fresh project
+
+### Usage
+
+Start the project:
+
+```
+deno task start
+```
+
+This will watch the project directory and restart as necessary.
