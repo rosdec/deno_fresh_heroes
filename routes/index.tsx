@@ -3,7 +3,6 @@ import { h } from "preact";
 import { tw } from "@twind";
 import HeroesScroller from "../islands/HeroesScroller.tsx";
 import Create from "../islands/CreateForm.tsx";
-import heroes from "../data/heroes.ts";
 
 globalThis.heroes = [
   {
