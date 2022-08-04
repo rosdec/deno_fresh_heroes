@@ -13,11 +13,17 @@ export const handler: Handlers = {
         
         await json(body);
 
-        globalThis.heroes[globalThis.heroes.findIndex(x => x.id === Number(_ctx.params.id))].name = body.parsedBody?.name as string;
+        const id = globalThis.heroes.findIndex(x => x.id === Number(_ctx.params.id));
+        if (id > -1) {
+            globalThis.heroes[id].name = body.parsedBody?.name as string;
 
-        return new Response(JSON.stringify(globalThis.heroes), {
-            status: 200
-        });
+            return new Response(JSON.stringify(globalThis.heroes), {
+                status: 200
+            });
+        } else 
+            return new Response(null, {
+                status: 404
+            });
     },
     DELETE(_req, _ctx) {
         // You probably already know what should happen here
