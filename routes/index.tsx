@@ -23,7 +23,6 @@ export default function Home() {
   return (
     <div class={tw`p-4 mx-auto max-w-screen-md`}>
       <h1 class={tw`text(3xl blue-500)`}>Tour of Heroes</h1>
-      {/* <Dashboard></Dashboard> */}
       <HeroesScroller start={1} />
       <br/>
       <Create></Create>
