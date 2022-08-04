@@ -10,7 +10,7 @@ export default function Greet(props: PageProps) {
 
   return (
     <div>
-      Hello {capitalizeFirstLetter(props.params.name)}!<br />
+      Hello {capitalizeFirstLetter(props.params.serverparam)}!<br />
       The server time is: {new Date().toDateString()}<br/>
       The server platform is: {platform() }
     </div>
