@@ -8,7 +8,7 @@ export const handler: Handlers = {
             status: 200
         });
     },
-    async POST(_req, _ctx) {
+    async PUT(_req, _ctx) {
         const body:ReqWithBody = _req;
         
         await json(body);

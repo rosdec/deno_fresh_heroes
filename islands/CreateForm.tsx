@@ -19,7 +19,7 @@ export default function CreateForm() {
   }
 
   function handleInput(e:Event) {
-    setQ(e.target!.value);
+    setQ((e.target as HTMLTextAreaElement).value);
   }
 
   return (
