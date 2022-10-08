@@ -7,10 +7,11 @@ import { tw } from "@twind";
 
 interface CounterProps {
   start: number;
+  firstName: string;
 }
 
 export default function HeroesScroller(props: CounterProps) {
-  const [currentHero, setCurrentHero] = useState({id:props.start, name:""});
+  const [currentHero, setCurrentHero] = useState({id:props.start, name:props.firstName});
 
   const previousHero = async () => {
     let response;
