@@ -7,13 +7,20 @@ import { tw } from "@twind";
 
 interface CounterProps {
   start: number;
+  firstName: string;
 }
 
 export default function HeroesScroller(props: CounterProps) {
-  const [currentHero, setCurrentHero] = useState({id:props.start, name:""});
+  const [currentHero, setCurrentHero] = useState({id:props.start, name:props.firstName});
 
   const previousHero = async () => {
-    const response = await fetch("/heroes/" + (currentHero.id - 1));
+    let response;
+    if (currentHero.id == 1) {
+      const hero_len = await (await fetch("/heroes/total")).text();
+      response = await fetch("/heroes/" + hero_len);
+    } else {
+      response = await fetch("/heroes/" + (currentHero.id - 1));
+    }
 
     try { 
       const newHero = await response.json();
@@ -28,7 +35,13 @@ export default function HeroesScroller(props: CounterProps) {
   };
 
   const nextHero = async () => {
-    const response = await fetch("/heroes/" + (currentHero.id + 1));
+    const hero_len = Number(await (await fetch("/heroes/total")).text());
+    let response;
+    if (currentHero.id == hero_len) {
+      response = await fetch("/heroes/" + 1);
+    } else {
+      response = await fetch("/heroes/" + (currentHero.id + 1));
+    }
 
     try {
       const newHero = await response.json();
